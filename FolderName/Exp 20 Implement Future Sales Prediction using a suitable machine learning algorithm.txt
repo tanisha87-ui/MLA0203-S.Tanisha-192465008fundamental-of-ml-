@@ -1,0 +1,15 @@
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Dataset: Month and sales
+X = np.array([[1], [2], [3], [4], [5], [6]])
+y = np.array([100, 120, 140, 160, 180, 200])
+
+# Train model
+model = LinearRegression()
+model.fit(X, y)
+
+# Predict sales for month 7
+prediction = model.predict([[7]])
+
+print("Predicted Sales for Month 7:", round(prediction[0], 2))

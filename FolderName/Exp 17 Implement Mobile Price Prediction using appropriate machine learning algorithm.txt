@@ -1,0 +1,25 @@
+from sklearn.ensemble import RandomForestClassifier
+
+# Features: RAM (GB), Battery (mAh), Storage (GB)
+X = [
+    [2, 2500, 16],
+    [3, 3000, 32],
+    [4, 4000, 64],
+    [6, 4500, 128],
+    [8, 5000, 128],
+    [12, 5000, 256]
+]
+
+# 0 = Low, 1 = Medium, 2 = High
+y = [0, 0, 1, 1, 2, 2]
+
+# Train model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X, y)
+
+# Predict price range
+prediction = model.predict([[8, 5000, 128]])
+
+ranges = ["Low", "Medium", "High"]
+
+print("Predicted Price Range:", ranges[prediction[0]])
